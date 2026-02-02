@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import BookingForm from './components/BookingForm';
 import EventCalendar from './components/EventCalendar';
-import Concierge from './components/Concierge';
+// import Concierge from './components/Concierge';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import { AMENITIES, FEATURED_EVENTS } from './constants';
@@ -280,7 +280,7 @@ const App: React.FC = () => {
         </Routes>
       </main>
 
-      {!isAdminRoute && <Concierge />}
+      {/* {!isAdminRoute && <Concierge />} */}
       {!isAdminRoute && <Footer />}
     </div>
   );
