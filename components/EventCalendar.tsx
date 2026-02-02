@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getBookings, getEvents } from '../services/storage';
 
 const EventCalendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [unavailableDates, setUnavailableDates] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUnavailableDates = async () => {
+      setIsLoading(true);
       try {
         const bookings = await getBookings();
         const events = await getEvents();
@@ -24,6 +26,8 @@ const EventCalendar: React.FC = () => {
       } catch (error) {
         console.error('Failed to fetch unavailable dates:', error);
         // Handle error appropriately
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -71,6 +75,38 @@ const EventCalendar: React.FC = () => {
   // Current date for comparison in render loop
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  // Loading skeleton
+  if (isLoading) {
+    return (
+      <div className="bg-white p-6 shadow-sm border border-gray-100">
+        <div className="flex justify-between items-center mb-6">
+          <div className="h-7 w-48 bg-gray-200 animate-pulse rounded"></div>
+          <div className="flex gap-2">
+            <div className="w-9 h-9 bg-gray-200 animate-pulse rounded-full"></div>
+            <div className="w-9 h-9 bg-gray-200 animate-pulse rounded-full"></div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-7 gap-2 mb-2 text-center">
+          {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(day => (
+            <div key={day} className="text-xs font-bold text-gray-400">{day}</div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-7 gap-2">
+          {Array.from({ length: 35 }).map((_, i) => (
+            <div key={i} className="h-10 bg-gray-200 animate-pulse rounded-sm"></div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-2 text-gray-500">
+          <Loader2 size={16} className="animate-spin" />
+          <span className="text-sm">Loading calendar...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white p-6 shadow-sm border border-gray-100">

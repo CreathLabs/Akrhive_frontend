@@ -17,13 +17,13 @@ export const initStorage = () => {
 
 // Events
 export const getEvents = async (): Promise<EventItem[]> => {
-  const data = await fetch('http://localhost:7000/api/event')
+  const data = await fetch('https://akrhivebackend-production.up.railway.app//api/event')
   const res = await data.json();
   return res ? res : [];
 };
 
 export const saveEvent = async (event: EventItem) => {
-  const data = await fetch('http://localhost:7000/api/event/create_event', {
+  const data = await fetch('https://akrhivebackend-production.up.railway.app//api/event/create_event', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export const saveEvent = async (event: EventItem) => {
 };
 
 export const deleteEvent = async (id: string) => {
-  const data = await fetch(`http://localhost:7000/api/event/delete_event/${id}`, {
+  const data = await fetch(`https://akrhivebackend-production.up.railway.app//api/event/delete_event/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -47,13 +47,13 @@ export const deleteEvent = async (id: string) => {
 
 // Bookings
 export const getBookings = async (): Promise<BookingRequest[]> => {
-  const data = await fetch('http://localhost:7000/api/booking')
+  const data = await fetch('https://akrhivebackend-production.up.railway.app//api/booking')
   const res = await data.json();
   return res ? res : [];
 };
 
 export const saveBooking = async (booking: BookingRequest) => {
-  const data = await fetch('http://localhost:7000/api/booking/create_booking', {
+  const data = await fetch('https://akrhivebackend-production.up.railway.app//api/booking/create_booking', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const saveBooking = async (booking: BookingRequest) => {
 };
 
 export const deleteBooking = async (id: string) => {
-  const data = await fetch(`http://localhost:7000/api/booking/delete_booking/${id}`, {
+  const data = await fetch(`https://akrhivebackend-production.up.railway.app//api/booking/delete_booking/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export const deleteBooking = async (id: string) => {
 };
 
 export const updateBooking = async (id: string, booking: BookingRequest) => {
-  const data = await fetch(`http://localhost:7000/api/booking/update_booking/${id}`, {
+  const data = await fetch(`https://akrhivebackend-production.up.railway.app//api/booking/update_booking/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

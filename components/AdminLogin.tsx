@@ -8,7 +8,7 @@ const AdminLogin: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    fetch('http://localhost:7000/api/admin/login', {
+    fetch('https://akrhivebackend-production.up.railway.app//api/admin/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
