@@ -2,7 +2,7 @@ import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { APP_NAME, ADDRESS } from '../constants';
-import logo from '../assets/logo_white.png';
+import logo from '../assets/logo_footer.png';
 
 const Footer: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             <img
               src={logo}
               alt={APP_NAME}
-              className="h-10 w-auto mb-6 object-contain"
+              className="h-20 w-auto mb-6 object-contain"
             />
             <p className="text-gray-400 text-sm leading-relaxed">
               Your Vision, Our Space. An upscale event infrastructure designed for clarity, elegance, and confidence.
@@ -48,13 +48,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-serif text-lg mb-4 text-ark-goldlight">Connect</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-ark-gold transition-colors"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/arkhive.ng/" className="text-gray-400 hover:text-ark-gold transition-colors"><Instagram size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-ark-gold transition-colors"><Twitter size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-ark-gold transition-colors"><Linkedin size={20} /></a>
             </div>
-            <p className="mt-6 text-xs text-gray-500">
-              Subscribe to our newsletter for event updates.
-            </p>
           </div>
         </div>
 
@@ -62,12 +59,6 @@ const Footer: React.FC = () => {
           <p>&copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.</p>
           <div className="flex gap-4 items-center">
             <p>Designed with intentionality.</p>
-            <Link
-              to="/admin"
-              className="opacity-20 hover:opacity-100 transition-opacity uppercase font-bold"
-            >
-              Admin
-            </Link>
           </div>
         </div>
       </div>

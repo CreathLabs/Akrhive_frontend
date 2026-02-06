@@ -130,7 +130,7 @@ const App: React.FC = () => {
                 ></div>
                 <div className="relative z-10 text-center text-white px-4">
                   <h1 className="font-serif text-5xl mb-4">The Space</h1>
-                  <p className="text-xl font-light tracking-wide max-w-2xl mx-auto">A canvas for creativity. Designed for flow, flexibility, and function.</p>
+                  <p className="text-xl font-light tracking-wide max-w-2xl mx-auto">Designed for comfort, performance, and flexibility.</p>
                 </div>
               </div>
 
@@ -138,7 +138,7 @@ const App: React.FC = () => {
                 {/* Specs Grid */}
                 <div className="grid md:grid-cols-3 gap-8 mb-20 text-center">
                   <div className="p-8 bg-white border border-gray-100">
-                    <h3 className="text-ark-gold text-4xl font-serif mb-2">500</h3>
+                    <h3 className="text-ark-gold text-4xl font-serif mb-2">750</h3>
                     <p className="text-xs uppercase tracking-widest font-bold text-gray-500">Square Meters</p>
                   </div>
                   <div className="p-8 bg-white border border-gray-100">
@@ -146,8 +146,8 @@ const App: React.FC = () => {
                     <p className="text-xs uppercase tracking-widest font-bold text-gray-500">Seating Capacity</p>
                   </div>
                   <div className="p-8 bg-white border border-gray-100">
-                    <h3 className="text-ark-gold text-4xl font-serif mb-2">Flex</h3>
-                    <p className="text-xs uppercase tracking-widest font-bold text-gray-500">Layout Options</p>
+                    <h3 className="text-ark-gold text-4xl font-serif mb-2">Custom</h3>
+                    <p className="text-xs uppercase tracking-widest font-bold text-gray-500">Event setup option</p>
                   </div>
                 </div>
 
@@ -246,11 +246,11 @@ const App: React.FC = () => {
                     <div className="space-y-8">
                       <div>
                         <h4 className="text-ark-gold text-sm font-bold uppercase tracking-widest mb-2">Visit Us</h4>
-                        <p className="text-gray-300 leading-relaxed">ArkHive<br />12 Lekki-Epe Expressway,<br />Ikota, Lagos State</p>
+                        <p className="text-gray-300 leading-relaxed">La Ciudad Mall<br />Km 12 Lekki-Epe Express Way,<br />Ikota, Lagos.</p>
                       </div>
                       <div>
                         <h4 className="text-ark-gold text-sm font-bold uppercase tracking-widest mb-2">Inquiries</h4>
-                        <p className="text-gray-300">hello@arkhive.com<br />+234 800 ARK HIVE</p>
+                        <p className="text-gray-300"><a href="mailto:Info@arkhive.ng">Info@arkhive.ng</a><br />0814 836 9164, 0904 0942 800 </p>
                       </div>
                       <div>
                         <h4 className="text-ark-gold text-sm font-bold uppercase tracking-widest mb-2">Opening Hours</h4>
