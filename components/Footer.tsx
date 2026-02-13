@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Mail, MapPin, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { APP_NAME, ADDRESS } from '../constants';
 import logo from '../assets/logo_footer.png';
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-gray-300">
               <li><Link to="/space" className="hover:text-ark-gold">The Space</Link></li>
               <li><Link to="/events" className="hover:text-ark-gold">Upcoming Events</Link></li>
-              <li><a href="#" className="hover:text-ark-gold">Usage Guidelines</a></li>
+              <li><a href="#" className="hover:text-ark-gold">Usage Guidelines</a></li>wha
               <li><a href="#" className="hover:text-ark-gold">Privacy Policy</a></li>
             </ul>
           </div>
@@ -48,7 +48,8 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-serif text-lg mb-4 text-ark-goldlight">Connect</h3>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/arkhive.ng/" className="text-gray-400 hover:text-ark-gold transition-colors"><Instagram size={20} /></a>
+              <a href="https://www.instagram.com/arkhive.ng/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-ark-gold transition-colors"><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/arkhiveng" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-ark-gold transition-colors"><Facebook size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-ark-gold transition-colors"><Twitter size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-ark-gold transition-colors"><Linkedin size={20} /></a>
             </div>
