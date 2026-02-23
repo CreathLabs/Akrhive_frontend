@@ -12,6 +12,8 @@ import { AMENITIES, FEATURED_EVENTS } from './constants';
 import { ArrowRight, MapPin, Download } from 'lucide-react';
 import { initStorage, getEvents } from './services/storage';
 import spaceImage from './assets/creathImage-104.jpg';
+import { MapContainer, TileLayer, Marker, Popup,  useMap } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
 
 const App: React.FC = () => {
   const [eventsList, setEventsList] = useState(FEATURED_EVENTS);
@@ -37,6 +39,9 @@ const App: React.FC = () => {
   }, [location.pathname]);
 
   const isAdminRoute = location.pathname.startsWith('/admin');
+  // Contact map coordinates (update these to change the marker location)
+  const CONTACT_LAT = 6.453293488988106
+  const CONTACT_LON = 3.5555847825554556
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-900 selection:bg-ark-gold selection:text-white">
@@ -258,15 +263,30 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="bg-gray-200 min-h-[400px] relative">
-                    {/* Placeholder for Map */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-stone-200">
-                      <div className="text-center">
-                        <MapPin className="w-12 h-12 text-ark-dark mx-auto mb-4" />
-                        <p className="text-gray-500 font-serif text-lg">Map View Integration</p>
-                        <p className="text-xs text-gray-400 mt-2">Ikota, Lagos State</p>
-                      </div>
-                    </div>
+                  <div className="bg-gray-200 min-h-[400px] relative overflow-hidden">
+                    {/* Map fills the container; pin overlays centered */}
+                    <MapContainer className="absolute inset-0 w-full h-full z-0" center={[CONTACT_LAT, CONTACT_LON]} zoom={13} scrollWheelZoom={false}>
+                      <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      <Marker position={[CONTACT_LAT, CONTACT_LON]}>
+                        <Popup>
+                          <div className="bg-white text-ark-dark p-3 rounded-sm shadow-md w-56">
+                            <h4 className="font-serif text-lg mb-1">ArkHive — Ikota</h4>
+                            <p className="text-sm text-gray-500 mb-3">La Ciudad Mall, Km 12 Lekki-Epe Express Way</p>
+                            <a
+                              className="inline-block w-full text-center bg-black text-white px-3 py-2 text-xs font-bold uppercase rounded-sm hover:opacity-90"
+                              href={`https://www.google.com/maps/search/?api=1&query=${CONTACT_LAT},${CONTACT_LON}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Open in Google Maps
+                            </a>
+                          </div>
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
                   </div>
                 </div>
               </div>
