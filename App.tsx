@@ -14,6 +14,18 @@ import { initStorage, getEvents } from './services/storage';
 import spaceImage from './assets/creathImage-104.jpg';
 import { MapContainer, TileLayer, Marker, Popup,  useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+// Ensure Leaflet's default icon URLs are correct when bundled (Vite/webpack)
+delete (L.Icon.Default.prototype as any)._getIconUrl
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+})
 
 const App: React.FC = () => {
   const [eventsList, setEventsList] = useState(FEATURED_EVENTS);
@@ -42,6 +54,29 @@ const App: React.FC = () => {
   // Contact map coordinates (update these to change the marker location)
   const CONTACT_LAT = 6.453293488988106
   const CONTACT_LON = 3.5555847825554556
+
+  // Ensure Leaflet map sizes correctly on first mount and when the window resizes
+  const MapResizeFix: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
+    const map = useMap()
+    React.useEffect(() => {
+      const resize = () => {
+        setTimeout(() => {
+          try {
+            map.invalidateSize()
+            map.setView([lat, lon], map.getZoom())
+          } catch (e) {
+            // map might not be ready yet
+          }
+        }, 50)
+      }
+
+      resize()
+      window.addEventListener('resize', resize)
+      return () => window.removeEventListener('resize', resize)
+    }, [map, lat, lon])
+
+    return null
+  }
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-900 selection:bg-ark-gold selection:text-white">
@@ -286,6 +321,7 @@ const App: React.FC = () => {
                           </div>
                         </Popup>
                       </Marker>
+                      <MapResizeFix lat={CONTACT_LAT} lon={CONTACT_LON} />
                     </MapContainer>
                   </div>
                 </div>
