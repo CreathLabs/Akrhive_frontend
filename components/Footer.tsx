@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} />
-                <a href="mailto:hello@arkhive.com" className="hover:text-ark-gold">hello@arkhive.com</a>
+                <a href="mailto:Info@arkhive.ng" className="hover:text-ark-gold">Info@arkhive.ng</a>
               </li>
             </ul>
           </div>
@@ -40,8 +40,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-gray-300">
               <li><Link to="/space" className="hover:text-ark-gold">The Space</Link></li>
               <li><Link to="/events" className="hover:text-ark-gold">Upcoming Events</Link></li>
-              <li><a href="#" className="hover:text-ark-gold">Usage Guidelines</a></li>wha
-              <li><a href="#" className="hover:text-ark-gold">Privacy Policy</a></li>
             </ul>
           </div>
 

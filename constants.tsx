@@ -4,7 +4,7 @@ import { EventItem, Amenity } from './types';
 
 export const APP_NAME = "ArkHive";
 export const APP_SLOGAN = "Your Vision, Our Space.";
-export const ADDRESS = "Ikota, Lagos State";
+export const ADDRESS = "La Ciudad Mall Km 12 Lekki-Epe Express Way, Ikota, Lagos.";
 
 export const FEATURED_EVENTS: EventItem[] = [
   {

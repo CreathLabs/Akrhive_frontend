@@ -211,9 +211,11 @@ const App: React.FC = () => {
                 <div className="bg-ark-dark text-white p-12 text-center rounded-sm">
                   <h2 className="font-serif text-3xl mb-4">Plan Your Layout</h2>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">Download our detailed floor plan and technical specifications to share with your event planner.</p>
-                  <button className="inline-flex items-center gap-2 border border-ark-gold text-ark-gold px-6 py-3 uppercase text-xs font-bold tracking-widest hover:bg-ark-gold hover:text-ark-dark transition-colors">
-                    <Download size={16} /> Download Floor Plan
-                  </button>
+                  <a href="https://media.publit.io/download/CUIDAD-FLOOR-PLAN-1.pdf?at=eyJpdiI6IkNXOW4ycjFsMHR6UXhub3BORkFoN2c9PSIsInZhbHVlIjoiM0lPMW5qZWhJekwvN0tFc3FtZUZaenNNdGxHcWUvckN4Z0dycVdMdEhvUT0iLCJtYWMiOiJiZTI4OWYxYWNmOTE2OWJkYWIwMjRjOGI3YzU5ZTVlMTBlNGY0ZTI3MWI4MDk1OWJiNzExNzI2ODA4MzBmZDc1IiwidGFnIjoiIn0=">
+                    <button className="inline-flex items-center gap-2 border border-ark-gold text-ark-gold px-6 py-3 uppercase text-xs font-bold tracking-widest hover:bg-ark-gold hover:text-ark-dark transition-colors">
+                        <Download size={16} /> Download Floor Plan
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
